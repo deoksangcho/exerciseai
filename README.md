@@ -2,6 +2,11 @@
 
 수원교육지원청 지방공무원 역량강화 연수용 AI 실습 프롬프트 런처입니다.
 
+## 배포 URL
+
+- Vercel: https://exercise-ashen.vercel.app
+- GitHub: https://github.com/deoksangcho/exerciseai
+
 ## 사용 방법
 
 1. 왼쪽에서 실습을 선택합니다.
