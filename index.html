@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>수원 역량강화 AI 실습실</title>
+    <meta
+      name="description"
+      content="수원교육지원청 지방공무원 역량강화 연수용 AI 실습 프롬프트 런처"
+    />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <p class="eyebrow">수원교육지원청 지방공무원 역량강화 연수</p>
+          <h1>AI 실습실</h1>
+        </div>
+        <div class="top-actions">
+          <a class="tool-link" href="https://gemini.google.com/" target="_blank" rel="noreferrer">Gemini 열기</a>
+          <a class="tool-link" href="https://notebooklm.google.com/" target="_blank" rel="noreferrer">NotebookLM 열기</a>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="sidebar" aria-label="실습 탐색">
+          <label class="search-label" for="searchInput">실습 검색</label>
+          <input id="searchInput" class="search-input" type="search" placeholder="회의록, OCR, 예산..." />
+          <div id="filterTabs" class="filter-tabs" aria-label="분류 필터"></div>
+          <nav id="sideNav" class="side-nav" aria-label="실습 목록"></nav>
+        </aside>
+
+        <section class="content">
+          <section class="intro-band" aria-labelledby="introTitle">
+            <div>
+              <p class="eyebrow">복사하고, 붙여넣고, 결과를 확인합니다</p>
+              <h2 id="introTitle">반복 행정업무를 위한 프롬프트 실습 런처</h2>
+              <p>
+                왼쪽에서 실습을 고르고, 오른쪽 안내에 따라 Gemini 또는 NotebookLM 새 창에서 실행하세요.
+                프롬프트와 오류 대응 문구는 버튼 한 번으로 복사됩니다.
+              </p>
+            </div>
+            <div class="progress-panel" aria-live="polite">
+              <span id="progressCount">0 / 0 완료</span>
+              <div class="progress-track"><span id="progressBar"></span></div>
+            </div>
+          </section>
+
+          <section id="cardGrid" class="card-grid" aria-label="실습 카드"></section>
+
+          <article id="detailPanel" class="detail-panel" aria-live="polite"></article>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
