@@ -1,5 +1,12 @@
 const GEMINI_URL = "https://gemini.google.com/";
 const NOTEBOOK_URL = "https://notebooklm.google.com/";
+const siteConfig = {
+  programTitle: "수원교육지원청 지방공무원 역량강화 연수",
+  appTitle: "AI 실습실",
+  pageTitle: "수원 역량강화 AI 실습실",
+  description: "수원교육지원청 지방공무원 역량강화 연수용 AI 실습 프롬프트 런처",
+  ...(window.EXERCISE_AI_SITE_CONFIG || {})
+};
 
 const helperPrompts = {
   fileIssue: `첨부 파일을 제대로 읽지 못한 것 같습니다.
@@ -293,6 +300,9 @@ let state = {
 };
 
 const els = {
+  programTitle: document.querySelector("#programTitle"),
+  appTitle: document.querySelector("#appTitle"),
+  siteDescription: document.querySelector("#siteDescription"),
   search: document.querySelector("#searchInput"),
   filters: document.querySelector("#filterTabs"),
   nav: document.querySelector("#sideNav"),
@@ -302,6 +312,13 @@ const els = {
   progressBar: document.querySelector("#progressBar"),
   toast: document.querySelector("#toast")
 };
+
+function applySiteConfig() {
+  document.title = siteConfig.pageTitle || `${siteConfig.programTitle} ${siteConfig.appTitle}`;
+  if (els.programTitle) els.programTitle.textContent = siteConfig.programTitle;
+  if (els.appTitle) els.appTitle.textContent = siteConfig.appTitle;
+  if (els.siteDescription) els.siteDescription.setAttribute("content", siteConfig.description);
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -641,4 +658,5 @@ window.addEventListener("hashchange", () => {
   }
 });
 
+applySiteConfig();
 render();
