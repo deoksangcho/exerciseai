@@ -133,8 +133,8 @@ const practices = [
     tool: "Gemini Gem",
     description: "자주 쓰는 행정업무 프롬프트 생성기를 Gem으로 저장합니다.",
     materials: [
-      { label: "프롬프트 확장 예시 1", path: "강의실습자료/06 프롬프트 확장/chat_01.png", type: "PNG" },
-      { label: "프롬프트 확장 예시 2", path: "강의실습자료/06 프롬프트 확장/chat_02.png", type: "PNG" }
+      { label: "프롬프트 확장 예시 1", path: "강의실습자료/06 프롬프트 확장/chat_01.png", type: "PNG" },
+      { label: "프롬프트 확장 예시 2", path: "강의실습자료/06 프롬프트 확장/chat_02.png", type: "PNG" }
     ],
     steps: ["Gemini에서 Gem 만들기 화면을 엽니다.", "아래 지침 생성 프롬프트를 실행합니다.", "생성된 지침을 Gem 설명과 지침란에 맞게 붙여넣습니다.", "회의록 또는 OCR 같은 키워드만 입력해 작동을 확인합니다."],
     prompts: [{ title: "Gem 지침 생성 프롬프트", text: inlinePrompts.gemBuilder }],
@@ -167,14 +167,14 @@ const practices = [
     privacy: true,
     description: "녹취 스크립트와 등록부를 업로드해 정식 회의록과 홈페이지 게시용 회의록을 만듭니다.",
     materials: [
-      { label: "녹취 스크립트 TXT", path: "강의실습자료/01 학운위 회의록 실습/12회 학운위 녹음_마스킹.txt", type: "TXT" },
-      { label: "등록부 PDF", path: "강의실습자료/01 학운위 회의록 실습/제12회 학교운영위원회 등록부.pdf", type: "PDF" },
-      { label: "회의록 참고 양식", path: "강의실습자료/01 학운위 회의록 실습/학교운영위원회 임시회의록(양식참고용).pdf", type: "PDF" },
-      { label: "안건 목록", path: "강의실습자료/01 학운위 회의록 실습/학교운영위원회 심의안건 목록.hwpx", type: "HWPX" }
+      { label: "녹취 스크립트 TXT", path: "강의실습자료/01 학운위 회의록 실습/12회 학운위 녹음_마스킹.txt", type: "TXT" },
+      { label: "등록부 PDF", path: "강의실습자료/01 학운위 회의록 실습/제12회 학교운영위원회 등록부.pdf", type: "PDF" },
+      { label: "회의록 참고 양식", path: "강의실습자료/01 학운위 회의록 실습/학교운영위원회 임시회의록(양식참고용).pdf", type: "PDF" },
+      { label: "안건 목록", path: "강의실습자료/01 학운위 회의록 실습/학교운영위원회 심의안건 목록.hwpx", type: "HWPX" }
     ],
     steps: ["Gemini 새 창을 엽니다.", "녹취 TXT, 등록부 PDF, 회의록 양식, 안건 목록을 업로드합니다.", "메인 프롬프트를 복사해 붙여넣습니다.", "정식 회의록과 홈페이지 게시용 회의록을 확인합니다.", "검증 프롬프트로 개인정보와 안건 순서를 다시 점검합니다."],
     prompts: [
-      { title: "회의록 생성 메인 프롬프트", path: "강의실습자료/01 학운위 회의록 실습/회의록_생성_프롬프트.md" },
+      { title: "회의록 생성 메인 프롬프트", path: "강의실습자료/01 학운위 회의록 실습/회의록_생성_프롬프트.md" },
       { title: "회의록 재검증 프롬프트", text: helperPrompts.verify }
     ],
     checks: ["파일 점검 결과가 먼저 나오나요?", "정식 회의록과 홈페이지 게시용 회의록이 모두 나오나요?", "게시용에서 실명과 연락처가 마스킹되었나요?", "확인 필요 항목이 따로 정리되나요?"],
@@ -190,11 +190,11 @@ const practices = [
     tool: "Gemini 권장",
     description: "추경예산안 PDF를 분석해 학교운영위원회 심의용 요약서를 만듭니다.",
     materials: [
-      { label: "추경예산안 PDF", path: "강의실습자료/02 추경안 요약 실습/2026학년도 송곡초등학교회계 세입세출 1차추경예산(안).pdf", type: "PDF" },
-      { label: "요약 양식 HWPX", path: "강의실습자료/02 추경안 요약 실습/양식.hwpx", type: "HWPX" }
+      { label: "추경예산안 PDF", path: "강의실습자료/02 추경안 요약 실습/2026학년도 송곡초등학교회계 세입세출 1차추경예산(안).pdf", type: "PDF" },
+      { label: "요약 양식 HWPX", path: "강의실습자료/02 추경안 요약 실습/양식.hwpx", type: "HWPX" }
     ],
     steps: ["Gemini 새 창을 엽니다.", "추경예산안 PDF를 업로드합니다.", "메인 프롬프트를 복사해 붙여넣습니다.", "예산규모 표의 기정, 금회, 소계가 맞는지 확인합니다.", "주요사항 표의 증감 방향을 검증합니다."],
-    prompts: [{ title: "추경예산안 요약 프롬프트", path: "강의실습자료/02 추경안 요약 실습/추경예산안_요약_자동작성_프롬프트.md" }],
+    prompts: [{ title: "추경예산안 요약 프롬프트", path: "강의실습자료/02 추경안 요약 실습/추경예산안_요약_자동작성_프롬프트.md" }],
     checks: ["금액은 천원 단위와 콤마로 표시되나요?", "세입 소계와 세출 소계가 일치하나요?", "과부족액이 올바른가요?", "감액과 증액 방향이 뒤바뀌지 않았나요?"],
     trouble: ["fileIssue", "tableBroken", "verify"]
   },
@@ -208,9 +208,9 @@ const practices = [
     tool: "Gemini 권장",
     description: "견적서와 참고 신청서를 바탕으로 소규모 교육환경개선사업 신청서를 작성합니다.",
     materials: [
-      { label: "참고신청서 PDF", path: "강의실습자료/03 예산신청서 작성/참고신청서.pdf", type: "PDF" },
-      { label: "복도 개선공사 견적서", path: "강의실습자료/03 예산신청서 작성/복도 개선공사 내역서(견적).pdf", type: "PDF" },
-      { label: "신청서 양식", path: "강의실습자료/03 예산신청서 작성/소규모교육환경개선사업 신청서(학교명).hwpx", type: "HWPX" }
+      { label: "참고신청서 PDF", path: "강의실습자료/03 예산신청서 작성/참고신청서.pdf", type: "PDF" },
+      { label: "복도 개선공사 견적서", path: "강의실습자료/03 예산신청서 작성/복도 개선공사 내역서(견적).pdf", type: "PDF" },
+      { label: "신청서 양식", path: "강의실습자료/03 예산신청서 작성/소규모교육환경개선사업 신청서(학교명).hwpx", type: "HWPX" }
     ],
     steps: ["Gemini 새 창을 엽니다.", "참고신청서와 견적서를 업로드합니다.", "아래 프롬프트를 복사해 붙여넣습니다.", "산출기초와 필요성 문구가 견적서 근거와 맞는지 확인합니다."],
     prompts: [{ title: "예산신청서 작성 프롬프트", text: inlinePrompts.budgetRequest }],
@@ -227,13 +227,13 @@ const practices = [
     tool: "Gemini 권장",
     description: "거래명세서 이미지를 분석해 K-에듀파인 물품내역 업로드용 표를 만듭니다.",
     materials: [
-      { label: "쿠팡 거래명세서 이미지", path: "강의실습자료/04 ocr 연습/쿠팡 거래명세서.png", type: "PNG" },
-      { label: "물품내역 엑셀 서식", path: "강의실습자료/04 ocr 연습/물품내역(서식).xls", type: "XLS" }
+      { label: "쿠팡 거래명세서 이미지", path: "강의실습자료/04 ocr 연습/쿠팡 거래명세서.png", type: "PNG" },
+      { label: "물품내역 엑셀 서식", path: "강의실습자료/04 ocr 연습/물품내역(서식).xls", type: "XLS" }
     ],
     steps: ["Gemini 새 창을 엽니다.", "거래명세서 이미지를 업로드합니다.", "개선 프롬프트를 복사해 붙여넣습니다.", "탭 구분 텍스트를 엑셀 서식에 붙여넣습니다.", "합계와 결제금액 차이가 0인지 확인합니다."],
     prompts: [
-      { title: "OCR 물품내역 개선 프롬프트", path: "강의실습자료/04 ocr 연습/프롬프트_v2.md" },
-      { title: "OCR 기본 프롬프트", path: "강의실습자료/04 ocr 연습/프롬프트.md" }
+      { title: "OCR 물품내역 개선 프롬프트", path: "강의실습자료/04 ocr 연습/프롬프트_v2.md" },
+      { title: "OCR 기본 프롬프트", path: "강의실습자료/04 ocr 연습/프롬프트.md" }
     ],
     checks: ["품명, 규격, 수량, 단위, 예상단가, 예상금액, 용도 순서인가요?", "배송비가 별도 행으로 분리되었나요?", "합계와 결제금액이 일치하나요?"],
     trouble: ["tableBroken", "verify", "shorten"]
@@ -249,18 +249,18 @@ const practices = [
     privacy: true,
     description: "본체 라벨과 HDD 사진을 촬영 순서대로 매칭해 엑셀 목록을 만듭니다.",
     materials: [
-      { label: "HDD 사진 IMG_4461", path: "강의실습자료/05 불용품 정리/image/IMG_4461.JPG", type: "JPG" },
-      { label: "HDD 사진 IMG_4462", path: "강의실습자료/05 불용품 정리/image/IMG_4462.JPG", type: "JPG" },
-      { label: "HDD 사진 IMG_4463", path: "강의실습자료/05 불용품 정리/image/IMG_4463.JPG", type: "JPG" },
-      { label: "HDD 사진 IMG_4464", path: "강의실습자료/05 불용품 정리/image/IMG_4464.JPG", type: "JPG" },
-      { label: "HDD 사진 IMG_4465", path: "강의실습자료/05 불용품 정리/image/IMG_4465.JPG", type: "JPG" },
-      { label: "HDD 사진 IMG_4466", path: "강의실습자료/05 불용품 정리/image/IMG_4466.JPG", type: "JPG" },
-      { label: "HDD 사진 IMG_4467", path: "강의실습자료/05 불용품 정리/image/IMG_4467.JPG", type: "JPG" },
-      { label: "HDD 사진 IMG_4468", path: "강의실습자료/05 불용품 정리/image/IMG_4468.JPG", type: "JPG" },
-      { label: "HDD 사진 IMG_4469", path: "강의실습자료/05 불용품 정리/image/IMG_4469.JPG", type: "JPG" }
+      { label: "HDD 사진 IMG_4461", path: "강의실습자료/05 불용품 정리/image/IMG_4461.JPG", type: "JPG" },
+      { label: "HDD 사진 IMG_4462", path: "강의실습자료/05 불용품 정리/image/IMG_4462.JPG", type: "JPG" },
+      { label: "HDD 사진 IMG_4463", path: "강의실습자료/05 불용품 정리/image/IMG_4463.JPG", type: "JPG" },
+      { label: "HDD 사진 IMG_4464", path: "강의실습자료/05 불용품 정리/image/IMG_4464.JPG", type: "JPG" },
+      { label: "HDD 사진 IMG_4465", path: "강의실습자료/05 불용품 정리/image/IMG_4465.JPG", type: "JPG" },
+      { label: "HDD 사진 IMG_4466", path: "강의실습자료/05 불용품 정리/image/IMG_4466.JPG", type: "JPG" },
+      { label: "HDD 사진 IMG_4467", path: "강의실습자료/05 불용품 정리/image/IMG_4467.JPG", type: "JPG" },
+      { label: "HDD 사진 IMG_4468", path: "강의실습자료/05 불용품 정리/image/IMG_4468.JPG", type: "JPG" },
+      { label: "HDD 사진 IMG_4469", path: "강의실습자료/05 불용품 정리/image/IMG_4469.JPG", type: "JPG" }
     ],
     steps: ["Gemini 새 창을 엽니다.", "사진을 촬영 순서대로 업로드합니다.", "HDD 시리얼 정리 프롬프트를 복사합니다.", "라벨 1개당 HDD 1~2개로 매칭되는지 확인합니다.", "판독 실패와 중복 시리얼 경고를 확인합니다."],
-    prompts: [{ title: "HDD 시리얼 정리 프롬프트", path: "강의실습자료/05 불용품 정리/하드디스크_시리얼정리_프롬프트.md" }],
+    prompts: [{ title: "HDD 시리얼 정리 프롬프트", path: "강의실습자료/05 불용품 정리/하드디스크_시리얼정리_프롬프트.md" }],
     checks: ["촬영 순서가 먼저 표로 정리되나요?", "본체 라벨과 시리얼이 1:N으로 매칭되나요?", "판독 실패와 HDD 누락이 경고로 표시되나요?"],
     trouble: ["fileIssue", "verify", "privacy"]
   },
@@ -344,7 +344,7 @@ function escapeHtml(value) {
 }
 
 function encodedPath(path) {
-  return encodeURI(path);
+  return encodeURI(path.normalize("NFC"));
 }
 
 function visiblePractices() {
