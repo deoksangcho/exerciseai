@@ -228,6 +228,12 @@ input {
   color: var(--green);
 }
 
+.practice-card.done .done-dot {
+  border-color: #86b7ae;
+  background: #e8f5f2;
+  color: var(--green);
+}
+
 .content {
   min-width: 0;
   padding: 28px;
@@ -288,25 +294,84 @@ input {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin: 22px 0;
+  gap: 8px;
+  margin: 18px 0;
 }
 
 .practice-card {
-  display: flex;
-  min-height: 190px;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 18px;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: 0 10px 22px rgba(31, 41, 51, 0.04);
 }
 
+.practice-card.active {
+  border-color: #9bb1cc;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.08);
+}
+
+.practice-card-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+}
+
+.launcher-select {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.launcher-select strong {
+  display: block;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.launcher-select small {
+  display: block;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.launcher-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.launcher-toggle {
+  min-height: 34px;
+}
+
+.practice-card-body {
+  display: grid;
+  gap: 10px;
+  padding: 0 14px 14px 44px;
+  border-top: 1px solid var(--line);
+}
+
 .practice-card h3 {
-  margin: 0 0 8px;
-  font-size: 19px;
+  margin: 14px 0 0;
+  font-size: 18px;
 }
 
 .practice-card p {
@@ -642,15 +707,23 @@ input {
     grid-template-columns: 1fr;
   }
 
-  .practice-card {
-    min-height: 166px;
-  }
-
   .detail-header {
     flex-direction: column;
   }
 
   .detail-actions {
     min-width: 0;
+  }
+
+  .practice-card-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .launcher-actions {
+    justify-content: space-between;
+  }
+
+  .practice-card-body {
+    padding-left: 14px;
   }
 }

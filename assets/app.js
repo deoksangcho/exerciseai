@@ -303,6 +303,7 @@ let state = {
   filter: "전체",
   search: "",
   promptCache: new Map(),
+  expandedCards: new Set(),
   done: new Set(JSON.parse(localStorage.getItem("exerciseai.done") || "[]"))
 };
 
@@ -415,20 +416,39 @@ function renderCards(items) {
   }
 
   els.cards.innerHTML = items
-    .map((item) => `
-      <article class="practice-card">
-        <div>
-          <div class="tag-row">
-            <span class="pill amber">${escapeHtml(item.category)}</span>
-            ${state.done.has(item.id) ? `<span class="pill green">완료</span>` : ""}
+    .map((item) => {
+      const done = state.done.has(item.id);
+      const expanded = state.expandedCards.has(item.id);
+      return `
+      <article class="practice-card ${item.id === state.selectedId ? "active" : ""} ${done ? "done" : ""}" data-card-id="${item.id}">
+        <div class="practice-card-summary">
+          <button class="launcher-select" data-select="${item.id}">
+            <span class="done-dot">${done ? "✓" : ""}</span>
+            <span>
+              <strong>${escapeHtml(item.title)}</strong>
+              <small>${escapeHtml(item.category)} · ${escapeHtml(item.time)} · ${escapeHtml(item.tool)}</small>
+            </span>
+          </button>
+          <div class="launcher-actions">
+            ${done ? `<span class="pill green">완료</span>` : ""}
+            <button class="ghost-button launcher-toggle" data-toggle-card="${item.id}" aria-expanded="${expanded ? "true" : "false"}">
+              ${expanded ? "접기" : "펼치기"}
+            </button>
           </div>
+        </div>
+        ${
+          expanded
+            ? `<div class="practice-card-body">
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.description)}</p>
           ${cardMeta(item)}
-        </div>
-        <button class="button primary" data-select="${item.id}">시작하기</button>
+          <button class="button primary" data-select="${item.id}">시작하기</button>
+        </div>`
+            : ""
+        }
       </article>
-    `)
+    `;
+    })
     .join("");
 }
 
@@ -612,6 +632,15 @@ function bindEvents(currentItem) {
 
   document.querySelectorAll("[data-select]").forEach((button) => {
     button.addEventListener("click", () => setSelected(button.dataset.select));
+  });
+
+  document.querySelectorAll("[data-toggle-card]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const id = button.dataset.toggleCard;
+      if (state.expandedCards.has(id)) state.expandedCards.delete(id);
+      else state.expandedCards.add(id);
+      render();
+    });
   });
 
   document.querySelectorAll("[data-copy-prompt]").forEach((button) => {
