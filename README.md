@@ -24,7 +24,10 @@ window.EXERCISE_AI_SITE_CONFIG = {
   programTitle: "새 연수명",
   appTitle: "AI 실습실",
   pageTitle: "새 연수명 AI 실습실",
-  description: "새 연수명용 AI 실습 프롬프트 런처"
+  description: "새 연수명용 AI 실습 프롬프트 런처",
+  lectureFile: "AI 역량강화 일반.pdf",
+  lectureLabel: "강의안 PDF",
+  lectureDownloadText: "강의안 다운받기"
 };
 ```
 
@@ -43,4 +46,4 @@ vercel --prod
 - `assets/styles.css`: 화면 스타일
 - `assets/app.js`: 실습 데이터, 프롬프트 복사, 체크 상태 저장
 - `강의실습자료/`: 실습용 자료와 원본 프롬프트
-- `수원 역량강화(20260518).pdf`: 강의안
+- `AI 역량강화 일반.pdf`: 강의안
